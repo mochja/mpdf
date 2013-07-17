@@ -12054,7 +12054,7 @@ function _getHtmlHeight($html) {
 		$html = str_replace('{PAGENO}',$this->pagenumPrefix.$this->docPageNum($this->page).$this->pagenumSuffix,$html);
 		$html = str_replace($this->aliasNbPgGp,$this->nbpgPrefix.$this->docPageNumTotal($this->page).$this->nbpgSuffix,$html );
 		$html = str_replace($this->aliasNbPg,$this->page,$html );
-		$html = preg_replace_callback( '/\{DATE\s+(.*?)\}/e', create_function( '$matches', 'return date($matches[1], $lo);' ), $html );
+		$html = preg_replace_callback( '/\{DATE\s+(.*?)\}/', create_function( '$matches', 'return date($matches[1], $lo);' ), $html );
 		$this->HTMLheaderPageLinks = array();
 		$this->HTMLheaderPageAnnots = array();
 		$this->HTMLheaderPageForms = array();
